@@ -1,0 +1,1 @@
+export interface IHomePageData {title: string, content: string[]}
