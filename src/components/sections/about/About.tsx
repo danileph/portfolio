@@ -103,7 +103,7 @@ const About: FC<IAboutProps> = ({content = []}) => {
           <Image src={'/imgs/avatar.png'} alt={'avatar'} width={150} height={150} />
           <article className={'box-border bg-secondary-dark-tr rounded-lg sm:px-10 py-10 max-w-[550px]'}>
             {content.map((text,i) => (
-              <Typography style={{marginBottom: content.length - 1 === i ? 0 : ''}} className={'text-center'}>{text}</Typography>
+              <Typography key={text} style={{marginBottom: content.length - 1 === i ? 0 : ''}} className={'text-center'}>{text}</Typography>
             ))}
           </article>
         </Wrapper>

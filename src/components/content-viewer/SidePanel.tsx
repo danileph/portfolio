@@ -24,7 +24,7 @@ const SidePanel: FC<ISidePanelProps> = ({sections , description, title}) => {
           <Title level={2} className={'inline-block'}>{title}</Title>
         </div>
         {description.map((p) => (
-          <Typography className={'mb-[60px] lg:text-start text-center'}>{p}</Typography>
+          <Typography className={'mb-[60px] lg:text-start text-center'} key={p}>{p}</Typography>
         ))}
         {sections && ['large'].includes(viewport) && (
           <div className={'mt-[40px] flex flex-col gap-4'}>

@@ -51,7 +51,7 @@ const Header: FC<IHeaderProps> = () => {
               <button onClick={closeAside}><Image src={'/imgs/cross.svg'} alt={'cross'} width={20} height={20} className={'absolute top-[20px] left-[20px]'} /></button>
               <ul className={'flex flex-col gap-4 justify-center items-start mt-20'}>
                 {routes.map((item) => (
-                  <Link to={item.src} smooth duration={500} className={`${activeSection === item.src && 'text-primary after:bg-primary'} inline-block cursor-pointer hover:text-primary relative py-3 after:content-[""] after:h-[4px] after:w-full after:hover:bg-primary after:absolute after:left-0 after:bottom-0`}>{item.name}</Link>
+                  <Link key={item.src} to={item.src} smooth duration={500} className={`${activeSection === item.src && 'text-primary after:bg-primary'} inline-block cursor-pointer hover:text-primary relative py-3 after:content-[""] after:h-[4px] after:w-full after:hover:bg-primary after:absolute after:left-0 after:bottom-0`}>{item.name}</Link>
                 ))}
               </ul>
               <div className={'grow'} />
@@ -72,7 +72,7 @@ const Header: FC<IHeaderProps> = () => {
       <Wrapper className={'h-full flex md:justify-center items-center'}>
         <ul className={'flex gap-8 items-center justify-center'}>
           {routes.map((item) => (
-            <Link onSetActive={(to, element) => setActiveSection(to)} spy to={item.src} smooth duration={500} className={`${activeSection === item.src && 'text-primary after:bg-primary'} hidden md:block cursor-pointer hover:text-primary relative py-3 after:content-[""] after:h-[4px] after:w-full after:hover:bg-primary after:absolute after:left-0 after:bottom-0`}>{item.name}</Link>
+            <Link key={item.src} onSetActive={(to, element) => setActiveSection(to)} spy to={item.src} smooth duration={500} className={`${activeSection === item.src && 'text-primary after:bg-primary'} hidden md:block cursor-pointer hover:text-primary relative py-3 after:content-[""] after:h-[4px] after:w-full after:hover:bg-primary after:absolute after:left-0 after:bottom-0`}>{item.name}</Link>
           ))}
         </ul>
         {['medium', 'large'].includes(viewport) ? (
