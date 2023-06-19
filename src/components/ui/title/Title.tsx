@@ -11,7 +11,7 @@ const Title = forwardRef<HTMLHeadingElement, ITitleProps>(({ level = 1, classNam
     case 1:
       RenderNode = (props) => (
         <h1
-          className={`text-7xl font-thin uppercase tracking-widest ${className}`}
+          className={`lg:text-7xl md:text-6xl text-5xl font-thin uppercase tracking-widest ${className}`}
           ref={ref}
           {...props}
         />
@@ -20,7 +20,7 @@ const Title = forwardRef<HTMLHeadingElement, ITitleProps>(({ level = 1, classNam
     case 2:
       RenderNode = (props) => (
         <h2
-          className={`text-4xl uppercase tracking-wide leading-[3rem] mb-[80px] after:content-[""] inline-block relative after:absolute after:block after:h-[4px] after:bottom-[-40px] after:rght-0 after:bg-primary-dark after:w-full ${className}`}
+          className={`md:text-4xl text-3xl lg:text-start text-center uppercase tracking-wide leading-[3rem] mb-[80px] after:content-[""] inline-block relative after:absolute after:block after:h-[4px] after:bottom-[-35px] after:rght-0 after:bg-primary-dark after:w-full ${className}`}
           ref={ref}
           {...props}
         />

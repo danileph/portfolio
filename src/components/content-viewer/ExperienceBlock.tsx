@@ -15,9 +15,9 @@ interface IExperienceBlockProps extends React.HTMLAttributes<HTMLDivElement> {
 const ExperienceBlock: FC<IExperienceBlockProps> = ({data}) => {
 
   return (
-    <div className={'grid grid-cols-[minmax(100px,200px)_minmax(300px,1fr)] gap-8 p-8 rounded-lg cursor-pointer hover:shadow-md hover:bg-secondary'}>
+    <div className={'md:grid sm:block grid-cols-[minmax(100px,200px)_minmax(300px,1fr)] gap-8 lg:p-8 rounded-lg lg:cursor-pointer lg:hover:shadow-md lg:hover:bg-secondary'}>
       <div className={''}>
-        <Typography className={'text-xs'}>{data.period?.start?.format(DATE_FORMAT).toUpperCase()} — {data.period?.end?.isValid() ? data.period?.end?.format(DATE_FORMAT).toUpperCase() : 'ПО Н. В.'}</Typography>
+        <Typography className={'text-xs !mb-0'}>{data.period?.start?.format(DATE_FORMAT).toUpperCase()} — {data.period?.end?.isValid() ? data.period?.end?.format(DATE_FORMAT).toUpperCase() : 'ПО Н. В.'}</Typography>
       </div>
       <div className={'grow'}>
         <Title level={3}>{data.company}</Title>

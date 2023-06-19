@@ -2,6 +2,8 @@
 import { FC } from 'react';
 import * as Scroll from "react-scroll";
 import {Divider} from "@/components/ui/divider";
+import useViewport from "@/hooks/useViewport";
+import ViewerSectionTitle from "@/components/content-viewer/ViewerSectionTitle";
 
 interface IVeiwerSectionProps extends React.HTMLAttributes<HTMLElement> {
   title: string;
@@ -9,11 +11,16 @@ interface IVeiwerSectionProps extends React.HTMLAttributes<HTMLElement> {
   showDivider?: boolean;
 };
 
-const VeiwerSection: FC<IVeiwerSectionProps> = ({name, children, showDivider = false}) => {
+const VeiwerSection: FC<IVeiwerSectionProps> = ({title, name, children, showDivider = false}) => {
+  const viewport = useViewport();
+
   return (
-    <Scroll.Element name={name} className={'pt-[50px] first:mt-[-50px]'}>
-      {showDivider && <Divider  />}
-      <div className={'flex flex-col gap-2'}>
+    <Scroll.Element name={name} className={'lg:pt-[50px] lg:first:mt-[-50px]'}>
+      {showDivider && ['large'].includes(viewport) && <Divider  />}
+      {!['large'].includes(viewport) && (
+        <ViewerSectionTitle>{title.toUpperCase()}</ViewerSectionTitle>
+      )}
+      <div className={'flex flex-col lg:gap-2 gap-[60px]'}>
         {children}
       </div>
     </Scroll.Element>

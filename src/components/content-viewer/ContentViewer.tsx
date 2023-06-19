@@ -24,10 +24,10 @@ interface IContentViewerCompound {
 
 const ContentViewer: FC<IContentViewerProps> & IContentViewerCompound = ({sections, name, children, description = [], title,}) => {
   return (
-    <Section name={name} className={'py-32'}>
-      <Wrapper className={'grid grid-cols-[minmax(200px,350px)_1fr] gap-36 w-full'}>
+    <Section name={name} className={'py-20'}>
+      <Wrapper className={'lg:grid grid-cols-[minmax(200px,350px)_1fr] md:block gap-36 w-full'}>
         <SidePanel description={description} title={title} sections={sections} />
-        <section className={'flex flex-col gap-2'}>
+        <section className={'flex flex-col lg:gap-2 gap-[60px]'}>
           {children}
         </section>
       </Wrapper>

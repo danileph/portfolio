@@ -24,6 +24,7 @@ module.exports = {
         primary: '#73CCA7',
         'primary-tr': 'rgba(115,204,167,0.2)',
         'primary-dark': '#525E65',
+        'primary-dark-tr': 'rgba(82,94,101,0.8)',
         secondary: '#2E3445',
         'secondary-dark': '#222732',
         'secondary-dark-tr': 'rgba(34,39,50,0.8)',
