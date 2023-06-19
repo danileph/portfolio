@@ -15,19 +15,19 @@ interface IProjectBlockProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const ProjectBlock: FC<IProjectBlockProps> = ({data}) => {
   return (
-    <div className={'md:grid flex flex-col-reverse grid-cols-[minmax(100px,200px)_minmax(300px,1fr)] md:gap-8 gap-6 lg:p-8 rounded-lg lg:cursor-pointer lg:hover:shadow-md lg:hover:bg-secondary'}>
+    <div className={'md:grid flex flex-col-reverse grid-cols-[minmax(100px,200px)_minmax(300px,1fr)] md:gap-8 md:space-y-0 space-y-reverse space-y-6 lg:p-8 rounded-lg lg:cursor-pointer lg:hover:shadow-md lg:hover:bg-secondary'}>
       <div className={''}>
        <Image className={'border-primary-dark border-4 rounded-md'} src={data.images && data.images.length !== 0 ? data.images[0] : '/imgs/img-placeholder.svg'} alt={data.name ? data.name : ''} width={200} height={100} />
       </div>
       <div className={'grow'}>
         <Title level={3} className={'mb-[10px]'}>{data.name}</Title>
-        <Typography className={'text-sm mb-[18px] leading-[1.3rem]'}>{data.description}</Typography>
-        <div className={'flex gap-2 flex-wrap'}>
+        <Typography className={'text-sm mb-[calc(18px-0.5rem)] leading-[1.3rem]'}>{data.description}</Typography>
+        <div className={'flex flex-wrap'}>
           {data.myTechnologies?.map((tech) => (
-            <Tag key={tech.id}>{tech.name}</Tag>
+            <Tag key={tech.id} className={'mt-2 mr-2'}>{tech.name}</Tag>
           ))}
           {data.otherTechnologies?.map((tech) => (
-            <Tag key={tech.id}>{tech.name}</Tag>
+            <Tag key={tech.id} className={'mt-2 mr-2'}>{tech.name}</Tag>
           ))}
         </div>
       </div>

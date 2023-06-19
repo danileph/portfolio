@@ -20,7 +20,7 @@ const VeiwerSection: FC<IVeiwerSectionProps> = ({title, name, children, showDivi
       {!['large'].includes(viewport) && (
         <ViewerSectionTitle>{title.toUpperCase()}</ViewerSectionTitle>
       )}
-      <div className={'flex flex-col lg:gap-2 gap-[60px]'}>
+      <div className={'flex flex-col lg:space-y-0 space-y-[60px]'}>
         {children}
       </div>
     </Scroll.Element>

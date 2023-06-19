@@ -22,18 +22,18 @@ const ExperienceBlock: FC<IExperienceBlockProps> = ({data}) => {
       <div className={'grow'}>
         <Title level={3}>{data.company}</Title>
         <Typography className={'!text-primary-dark text-lg mb-[10px]'}>{data.position}</Typography>
-        <Typography className={'text-sm mb-[14px] leading-[1.3rem]'}>{data.achievements}</Typography>
-        <div className={'flex gap-2 mb-[18px]'}>
+        <Typography className={'text-sm mb-[calc(14px-0.5rem)] leading-[1.3rem]'}>{data.achievements}</Typography>
+        <div className={'flex mb-[calc(18px-0.5rem)]'}>
           {data.projects?.map((project) => (
-            <Ref key={project.name}>{project.name}</Ref>
+            <Ref key={project.name} className={'mt-2 mr-2'}>{project.name}</Ref>
           ))}
         </div>
-        <div className={'flex flex-wrap gap-2'}>
+        <div className={'flex flex-wrap'}>
           {data.projects?.flatMap((project) => project.myTechnologies?.flatMap(tech => (
-            <Tag key={tech.id}>{tech.name}</Tag>
+            <Tag key={tech.id} className={'mt-2 mr-2'}>{tech.name}</Tag>
           )))}
           {data.technologies?.map((tech) => (
-            <Tag key={tech.name}>{tech.name}</Tag>
+            <Tag key={tech.name} className={'mt-2 mr-2'}>{tech.name}</Tag>
           ))}
         </div>
       </div>

@@ -27,7 +27,7 @@ const ContentViewer: FC<IContentViewerProps> & IContentViewerCompound = ({sectio
     <Section name={name} className={'py-20'}>
       <Wrapper className={'lg:grid grid-cols-[minmax(200px,350px)_1fr] md:block gap-36 w-full'}>
         <SidePanel description={description} title={title} sections={sections} />
-        <section className={'flex flex-col lg:gap-2 gap-[60px]'}>
+        <section className={'flex flex-col lg:space-y-0 space-y-[60px]'}>
           {children}
         </section>
       </Wrapper>

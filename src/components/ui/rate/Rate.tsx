@@ -8,10 +8,10 @@ interface IRateProps extends Omit<React.HTMLAttributes<HTMLElement>, 'children'>
 const Rate: FC<IRateProps> = ({ value, className, ...other}) => {
   const bands: React.ReactElement[] = [];
   for (let i = 1; i <= 10; i++) {
-    bands.push(<div className={`grow h-[10px] max-w-[6px] ${i <= value ? 'bg-primary' : 'bg-primary-dark'}`} />)
+    bands.push(<div className={`grow h-[10px] max-w-[10px] ${i <= value ? 'bg-primary' : 'bg-primary-dark'}`} />)
   }
   return (
-      <div className={`flex gap-0.5 ${className}`}>
+      <div className={`flex ${className}`}>
         {bands}
       </div>
   )

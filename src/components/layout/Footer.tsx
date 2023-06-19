@@ -14,9 +14,9 @@ interface IFooterProps {};
 const Footer: FC<IFooterProps> = () => {
   return (
     <footer className={'bg-ellipse-background-footer h-[40vh] bg-no-repeat bg-top bg-cover mt-24'}>
-      <Wrapper className={'flex flex-col items-center gap-6 p-10'}>
+      <Wrapper className={'flex flex-col items-center space-y-6 p-10'}>
         <A className={'text-sm'}>danileph@bk.ru</A>
-        <ul className={'flex gap-4'}>
+        <ul className={'flex space-x-4'}>
           {socialMedias.map((socialMedia) => (
             <a href={socialMedia.src} key={socialMedia.src}>
               <li className={''}>
