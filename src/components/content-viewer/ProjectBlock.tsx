@@ -1,3 +1,4 @@
+'use client'
 import { FC } from 'react';
 import Typography from "@/components/ui/typography/Typography";
 import dayjs from "dayjs";
@@ -8,14 +9,21 @@ import {Tag} from "@/components/ui/tag";
 import {IExperience} from "@/models/IExperience";
 import {IProject} from "@/models/IProject";
 import Image from "next/image";
+import {useRouter} from "next/navigation";
 
 interface IProjectBlockProps extends React.HTMLAttributes<HTMLDivElement> {
   data: IProject;
 };
 
 const ProjectBlock: FC<IProjectBlockProps> = ({data}) => {
+  const router = useRouter();
+
+  const onProjectClick = () => {
+    router.push(`/projects/${data.id}`);
+  }
+
   return (
-    <div className={'md:grid flex flex-col-reverse grid-cols-[minmax(100px,200px)_minmax(300px,1fr)] md:gap-8 md:space-y-0 space-y-reverse space-y-6 lg:p-8 rounded-lg lg:cursor-pointer lg:hover:shadow-md lg:hover:bg-secondary'}>
+    <div onClick={onProjectClick} className={'md:grid flex flex-col-reverse grid-cols-[minmax(100px,200px)_minmax(300px,1fr)] md:gap-8 md:space-y-0 space-y-reverse space-y-6 lg:p-8 rounded-lg lg:cursor-pointer lg:hover:shadow-md lg:hover:bg-secondary'}>
       <div className={''}>
        <Image className={'border-primary-dark border-4 rounded-md'} src={data.images && data.images.length !== 0 ? data.images[0] : '/imgs/img-placeholder.svg'} alt={data.name ? data.name : ''} width={200} height={100} />
       </div>

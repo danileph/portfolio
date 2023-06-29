@@ -1,3 +1,5 @@
+@import "react-alice-carousel/lib/alice-carousel.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,4 +37,16 @@ body {
   background: #222732;
   color: #DBE8D4;
   font-family: Unbounded, sans-serif;
+}
+
+.alice-carousel__dots-item:not(.__custom) {
+  background: #525E65;
+}
+
+.alice-carousel__dots-item:not(.__custom).__active {
+  background: #DBE8D4;
+}
+
+.alice-carousel__dots-item:not(.__custom):hover {
+  background: #73CCA7;
 }

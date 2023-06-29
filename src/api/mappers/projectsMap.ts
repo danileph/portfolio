@@ -3,10 +3,13 @@ import {ITechnology} from "@/models/ITechnology";
 import {PageObjectResponse, PartialPageObjectResponse} from "@notionhq/client/build/src/api-endpoints";
 import {IProject} from "@/models/IProject";
 import {getTechnologies} from "@/api/getTechnologies";
+import {getExperience} from "@/api/getExperience";
 
 export const projectsMap = async (data: (PageObjectResponse | PartialPageObjectResponse)[]) => {
   const mappedData: IProject[] = [];
-  const technologies = await getTechnologies();
+  const _technologies = getTechnologies();
+  const [technologies, experience] = await Promise.all([_technologies]);
+
   data.forEach((project, i) => {
     const properties = project.properties;
     const mappedTechnologies: IProject = {

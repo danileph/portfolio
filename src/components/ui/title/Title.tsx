@@ -13,7 +13,7 @@ const Title = forwardRef<HTMLHeadingElement, ITitleProps>(({ level = 1, classNam
       // eslint-disable-next-line react/display-name
       RenderNode = (props) => (
         <h1
-          className={`lg:text-7xl md:text-6xl text-5xl font-thin uppercase tracking-widest ${className}`}
+          className={`lg:text-7xl md:text-6xl text-4xl font-thin uppercase tracking-widest ${className}`}
           ref={ref}
           {...props}
         />
