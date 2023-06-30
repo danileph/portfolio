@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${lack.variable} ${inter.variable} font-lack`}>
+      <body className={`${lack.variable} ${inter.variable} font-inter`}>
       <Layout>
         {children}
       </Layout>

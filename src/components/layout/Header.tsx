@@ -76,7 +76,7 @@ const Header: FC<IHeaderProps> = () => {
           ))}
         </ul>
         {['medium', 'large'].includes(viewport) ? (
-            <ul className={'flex space-x-2 absolute right-0 items-center mr-4'}>
+            <ul className={'flex space-x-2 absolute mr-4 right-0 items-center'}>
               {socialMedias.map((socialMedia) => (
                 <a href={socialMedia.src} key={socialMedia.src}>
                   <li className={''}>
