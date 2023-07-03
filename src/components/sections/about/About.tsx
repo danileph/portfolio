@@ -96,7 +96,7 @@ const About: FC<IAboutProps> = ({content = []}) => {
   // }, []);
 
   return (
-    <Section name={'about'} className={'pt-[50px] flex flex-col relative'}>
+    <Section name={'about'} className={'pt-[50px] lg:pb-[48px] flex flex-col relative'}>
       {/*<Particles className={'absolute top-0 bottom-0 grow blur-[1px]'} id="tsparticles" init={particlesInit} loaded={particlesLoaded} options={particlesOptions} />*/}
       <Heading />
         <Wrapper className={'pt-14 pb-10 flex flex-col justify-center items-center space-x-4 relative z-10'}>

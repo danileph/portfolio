@@ -4,7 +4,7 @@ interface IDividerProps extends React.HTMLAttributes<HTMLElement> {};
 
 const Divider: FC<IDividerProps> = ({className, ...other}) => {
   return (
-    <hr className={` mb-[50px] bg-secondary h-[1px] border-0 mx-8 ${className}`} {...other}/>
+    <hr className={` mb-[50px] bg-secondary h-[2px] border-0 mx-8 ${className}`} {...other}/>
   )
 }
 

@@ -23,7 +23,7 @@ const Title = forwardRef<HTMLHeadingElement, ITitleProps>(({ level = 1, classNam
       // eslint-disable-next-line react/display-name
       RenderNode = (props) => (
         <h2
-          className={`md:text-4xl text-3xl lg:text-start text-center uppercase tracking-wide leading-[3rem] mb-[80px] after:content-[""] inline-block relative after:absolute after:block after:h-[4px] after:bottom-[-35px] after:rght-0 after:bg-primary-dark after:w-full ${className}`}
+          className={`md:text-4xl text-3xl lg:text-start text-center uppercase tracking-wide leading-[3rem] mb-[60px] after:content-[""] inline-block relative after:absolute after:block after:h-[4px] after:bottom-[-30px] after:rght-0 after:bg-primary-dark after:w-full ${className}`}
           ref={ref}
           {...props}
         />

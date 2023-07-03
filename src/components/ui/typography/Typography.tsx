@@ -4,7 +4,7 @@ interface ITypographyProps extends React.HTMLAttributes<HTMLParagraphElement>{};
 
 const Typography: FC<ITypographyProps> = ({className, ...other}) => {
   return (
-    <p className={`mb-6 leading-6 text-white-secondary ${className}`} {...other}></p>
+    <p className={`mb-6 leading-6 text-white-secondary tracking-wide ${className}`} {...other}></p>
   )
 }
 

@@ -15,7 +15,7 @@ const VeiwerSection: FC<IVeiwerSectionProps> = ({title, name, children, showDivi
   const viewport = useViewport();
 
   return (
-    <Scroll.Element name={name} className={'lg:pt-[50px] lg:first:mt-[-50px]'}>
+    <section id={name} className={'lg:pt-[50px] lg:first:mt-[-50px]'}>
       {showDivider && ['large'].includes(viewport) && <Divider  />}
       {!['large'].includes(viewport) && (
         <ViewerSectionTitle>{title.toUpperCase()}</ViewerSectionTitle>
@@ -23,7 +23,7 @@ const VeiwerSection: FC<IVeiwerSectionProps> = ({title, name, children, showDivi
       <div className={'flex flex-col lg:space-y-0 space-y-[60px]'}>
         {children}
       </div>
-    </Scroll.Element>
+    </section>
   )
 }
 

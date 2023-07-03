@@ -12,6 +12,14 @@ interface IFooterProps {};
 
 
 const Footer: FC<IFooterProps> = () => {
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <footer className={'bg-ellipse-background-footer h-[40vh] bg-no-repeat bg-top bg-cover mt-24'}>
       <Wrapper className={'flex flex-col items-center space-y-6 p-10'}>
@@ -26,9 +34,9 @@ const Footer: FC<IFooterProps> = () => {
           ))}
         </ul>
         <Typography className={'!text-primary-dark text-xs !mb-0'}>© Д. В. Ефремов, {new Date().getFullYear()} г.</Typography>
-        <Link to={'about'} className={'w-[40px] h-[40px] cursor-pointer'}>
+        <button onClick={scrollToTop} className={'w-[40px] h-[40px] cursor-pointer'}>
           <Image src={'/imgs/arrow.svg'} alt={'К началу'} width={40} height={40} />
-        </Link>
+        </button>
       </Wrapper>
     </footer>
   )
