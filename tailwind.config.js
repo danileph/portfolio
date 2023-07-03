@@ -13,6 +13,10 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'ellipse-background-footer': 'url("/imgs/ellipse-background-footer.svg")',
         'ellipse-background-header': 'url("/imgs/ellipse-background-header.svg")',
+        'arrow-3': 'url("/imgs/arrow-3.svg")',
+        'arrow-3-ac': 'url("/imgs/arrow-3-ac.svg")',
+        'chain': 'url("/imgs/chain.svg")',
+        'chain-ac': 'url("/imgs/chain-active.svg")',
       },
       fontFamily: {
         inter: ['var(--font-inter)'],
@@ -23,6 +27,7 @@ module.exports = {
         'white-secondary': 'rgba(219,232,212,0.8)',
         primary: '#73CCA7',
         'primary-tr': 'rgba(115,204,167,0.2)',
+        'primary-light': 'rgb(142,153,157)',
         'primary-dark': '#525E65',
         'primary-dark-tr': 'rgba(82,94,101,0.8)',
         secondary: '#2E3445',

@@ -18,7 +18,6 @@ interface ISidePanelProps {
 const SidePanel: FC<ISidePanelProps> = ({sections , description, title}) => {
   // const [activeSection, setActiveSection] = useState('');
   const sectionIds = useMemo(() => sections?.map(seciton => seciton.src), [sections])
-  console.log(sectionIds)
   const activeSection = useActiveSection(sectionIds ? sectionIds : [], [sectionIds])
   const viewport = useViewport();
   const scrollTo = useScroll();

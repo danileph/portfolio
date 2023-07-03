@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import {DATE_FORMAT} from "@/lib/consts/date-format";
 import {Tag} from "@/components/ui/tag";
 import {Ref} from "@/components/ui/ref";
+import Link from "next/link";
 
 interface IExperienceBlockProps extends React.HTMLAttributes<HTMLDivElement> {
   data: IExperience
@@ -15,7 +16,7 @@ interface IExperienceBlockProps extends React.HTMLAttributes<HTMLDivElement> {
 const ExperienceBlock: FC<IExperienceBlockProps> = ({data}) => {
 
   return (
-    <div className={'md:grid sm:block grid-cols-[minmax(100px,200px)_minmax(300px,1fr)] gap-8 lg:p-8 rounded-lg lg:cursor-pointer lg:hover:shadow-md lg:hover:bg-secondary'}>
+    <div className={'md:grid sm:block grid-cols-[minmax(100px,200px)_minmax(300px,1fr)] gap-8 lg:p-8 rounded-lg'}>
       <div className={''}>
         <Typography className={'text-xs !mb-0'}>{data.period?.start?.format(DATE_FORMAT).toUpperCase()} — {data.period?.end?.isValid() ? data.period?.end?.format(DATE_FORMAT).toUpperCase() : 'ПО Н. В.'}</Typography>
       </div>
@@ -25,7 +26,7 @@ const ExperienceBlock: FC<IExperienceBlockProps> = ({data}) => {
         <Typography className={'text-sm mb-[calc(14px-0.5rem)] leading-[1.3rem]'}>{data.achievements}</Typography>
         <div className={'flex mb-[calc(18px-0.5rem)]'}>
           {data.projects?.map((project) => (
-            <Ref key={project.name} className={'mt-2 mr-2'}>{project.name}</Ref>
+            <Ref href={`/projects/${project.id}`} key={project.name} className={'mt-2 mr-4'}>{project.name}</Ref>
           ))}
         </div>
         <div className={'flex flex-wrap'}>
