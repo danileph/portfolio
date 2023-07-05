@@ -16,7 +16,7 @@ export const metadata = {
   description: 'Развивающийся full-stack web разработчик. Имеется опыт разработки web-приложений, сайтов, браузерных расширений, серверных приложений и других систем.',
   openGraph: {
     title: 'Danil Efremov',
-    description: 'Развивающийся full-stack web разработчик. Имеется опыт разработки web-приложений, сайтов, браузерных расширений, серверных приложений и других систем.',
+    description: 'Full-stack web разработчик. Имеется опыт разработки web-приложений, сайтов, браузерных расширений, серверных приложений и других систем.',
     url: 'https://danileph.ru',
     siteName: 'Danil Efremov',
     locale: 'ru_RU',
@@ -24,8 +24,9 @@ export const metadata = {
     images: [
       {
         url: '/imgs/preview-portfolio.jpg',
-        width: 1200,
-        height: 627,
+      },
+      {
+        url: '/imgs/preview-small.jpg',
       },
     ],
   }
