@@ -23,14 +23,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: '/imgs/preview-small.jpg',
-        width: 800,
-        height: 600,
-      },
-      {
         url: '/imgs/preview-portfolio.jpg',
-        width: 1800,
-        height: 1600,
       },
     ],
   }
