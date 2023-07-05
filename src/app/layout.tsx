@@ -13,7 +13,7 @@ const lack = localFont({src: '../../public/fonts/lack/Lack-Regular.otf', variabl
 
 export const metadata = {
   title: 'Danil Efremov | Full stack web-developer',
-  description: 'Развивающийся full-stack web разработчик. Имеется опыт разработки web-приложений, сайтов, браузерных расширений, серверных приложений и других систем.',
+  description: 'Full-stack web разработчик. Имеется опыт разработки web-приложений, сайтов, браузерных расширений, серверных приложений и других систем.',
   openGraph: {
     title: 'Danil Efremov',
     description: 'Full-stack web разработчик. Имеется опыт разработки web-приложений, сайтов, браузерных расширений, серверных приложений и других систем.',
@@ -23,10 +23,14 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: '/imgs/preview-portfolio.jpg',
+        url: '/imgs/preview-small.jpg',
+        width: 800,
+        height: 600,
       },
       {
-        url: '/imgs/preview-small.jpg',
+        url: '/imgs/preview-portfolio.jpg',
+        width: 1800,
+        height: 1600,
       },
     ],
   }
