@@ -5,6 +5,7 @@ import Projects from "@/components/sections/projects/Projects";
 import {getHomeContent} from "@/api/getHomeContent";
 import Technologies from "@/components/sections/technologies/Technologies";
 import RouteChangeProvider from "@/components/route/RouteChangeProvider";
+import RootProvider from "@/components/root-provider/RootProvider";
 
 export default async function Home() {
   const homeContentPromis = getHomeContent();
@@ -12,12 +13,12 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen">
-      <RouteChangeProvider>
+      <RootProvider>
         <About content={homeContent?.find(block => block.title === 'About')?.content} />
         <Experience content={homeContent?.find(block => block.title === 'Experience')?.content} />
         <Projects content={homeContent?.find(block => block.title === 'Projects')?.content} />
         <Technologies content={homeContent?.find(block => block.title === 'Tech stack')?.content} />
-      </RouteChangeProvider>
+      </RootProvider>
     </main>
   )
 }
