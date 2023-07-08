@@ -4,7 +4,10 @@ import localFont from 'next/font/local';
 import {Layout} from "@/components/layout";
 import 'dayjs/locale/ru'
 import dayjs from "dayjs";
+import {Suspense} from "react";
+import Loading from "@/app/loading";
 dayjs.locale('ru');
+import "react-loading-skeleton/dist/skeleton.css";
 
 // const piazzolla = Piazzolla({ subsets: ['cyrillic'] })
 // const unbounded = localFont({src: '../../public/fonts/unbounded/woff/Unbounded-Regular.woff2'});
@@ -42,7 +45,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${lack.variable} ${inter.variable} font-inter`}>
       <Layout>
-        {children}
+        <Suspense fallback={<Loading />}>
+          {children}
+        </Suspense>
+        {/*<Loading />*/}
       </Layout>
       </body>
     </html>

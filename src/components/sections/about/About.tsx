@@ -100,7 +100,7 @@ const About: FC<IAboutProps> = ({content = []}) => {
       {/*<Particles className={'absolute top-0 bottom-0 grow blur-[1px]'} id="tsparticles" init={particlesInit} loaded={particlesLoaded} options={particlesOptions} />*/}
       <Heading />
         <Wrapper className={'pt-14 pb-10 flex flex-col justify-center items-center space-x-4 relative z-10'}>
-          <Image src={'/imgs/avatar.png'} alt={'avatar'} width={150} height={150} />
+          <Image src={'/imgs/avatar.png'} alt={'avatar'} width={150} height={150} loading={"lazy"}/>
           <article className={'box-border bg-secondary-dark-tr rounded-lg sm:px-10 py-10 max-w-[550px]'}>
             {content.map((text,i) => (
               <Typography key={text} style={{marginBottom: content.length - 1 === i ? 0 : ''}} className={'text-center'}>{text}</Typography>

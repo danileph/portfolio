@@ -9,7 +9,7 @@ const RootProvider: FC<IRootProviderProps> = ({children}) => {
   return (
     <>
       <RouteChangeProvider>
-        <SkeletonTheme baseColor="#525E65" highlightColor="rgba(219,232,212,0.2)">
+        <SkeletonTheme baseColor="#2E3445" highlightColor="#525E65">
           {children}
         </SkeletonTheme>
       </RouteChangeProvider>
