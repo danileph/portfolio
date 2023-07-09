@@ -45,9 +45,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${lack.variable} ${inter.variable} font-inter`}>
       <Layout>
-        <Suspense fallback={<Loading />}>
-          {children}
-        </Suspense>
+        {/*<Suspense fallback={<Loading />}>*/}
+        {/*  {children}*/}
+        {/*</Suspense>*/}
+        {children}
         {/*<Loading />*/}
       </Layout>
       </body>
