@@ -23,7 +23,7 @@ const TechnologyBlock: FC<ITechnologyBlockProps> = ({data}) => {
   const viewport = useViewport();
 
   const onProjectClick = () => {
-    router.push(`/projects/${data.id}`);
+    window.open(data.ref, '_blank');
   }
 
 
