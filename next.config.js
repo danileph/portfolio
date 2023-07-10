@@ -14,7 +14,7 @@ const nextConfig = {
       },
     ];
   },
-  generateEtags: false,
+  // generateEtags: false,
   images: {
     remotePatterns: [
       {
