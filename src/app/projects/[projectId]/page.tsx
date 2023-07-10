@@ -10,7 +10,7 @@ import {Tag} from "@/components/ui/tag";
 import {Suspense} from "react";
 import Loading from "@/app/projects/[projectId]/loading";
 
-export const revalidate = 60;
+export const revalidate = 0;
 export default async function Project ({ params }:{ params: { projectId: string }}){
   console.log(params.projectId);
   const _projectData = getProjectContent(params.projectId);

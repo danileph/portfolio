@@ -9,7 +9,7 @@ import RootProvider from "@/components/root-provider/RootProvider";
 import {Suspense} from "react";
 import Loading from "@/app/loading";
 
-export const revalidate = 60;
+export const revalidate = 0;
 export default async function Home() {
   const homeContentPromis = getHomeContent();
   const [homeContent] = await Promise.all([homeContentPromis]);
