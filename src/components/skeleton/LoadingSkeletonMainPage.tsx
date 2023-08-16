@@ -167,15 +167,12 @@ const LoadingSkeletonMainPage: FC<ILoadingSkeletonMainPageProps> = () => {
             <section className={'flex flex-col lg:space-y-0 space-y-[60px]'}>
               <div className={'md:grid flex flex-col-reverse grid-cols-[minmax(100px,200px)_minmax(300px,1fr)] md:gap-8 md:space-y-0 space-y-reverse space-y-6 lg:p-8 rounded-lg'}>
                 <div>
-                  <div className={`border-[3px] border-primary-dark rounded-md relative md:block md:w-auto md:h-auto w-[200px] inline-block items-stretch`}>
-                    <Skeleton className={'block w-full h-[100px]'} containerClassName={'flex'}/>
-                  </div>
-                </div>
-                <div className={'grow'}>
-                  <Title className={`mb-[10px]`} level={3}><Skeleton className={'max-w-[200px]'} /></Title>
                   <Typography className={`mb-[calc(24px-0.5rem)]`}>
                     <Skeleton className={'max-w-[200px]'} />
                   </Typography>
+                </div>
+                <div className={'grow'}>
+                  <Title className={`mb-[10px]`} level={3}><Skeleton className={'max-w-[200px]'} /></Title>
                   <div className={'flex flex-wrap'}>
                     <Typography className={'w-[60px] mt-2 mr-4'}><Skeleton /></Typography>
                     <Typography className={'w-[60px] mt-2 mr-4'}><Skeleton /></Typography>
@@ -185,15 +182,12 @@ const LoadingSkeletonMainPage: FC<ILoadingSkeletonMainPageProps> = () => {
               </div>
               <div className={'md:grid flex flex-col-reverse grid-cols-[minmax(100px,200px)_minmax(300px,1fr)] md:gap-8 md:space-y-0 space-y-reverse space-y-6 lg:p-8 rounded-lg'}>
                 <div>
-                  <div className={`border-[3px] border-primary-dark rounded-md relative md:block md:w-auto md:h-auto w-[200px] inline-block items-stretch`}>
-                    <Skeleton className={'block w-full h-[100px]'} containerClassName={'flex'}/>
-                  </div>
-                </div>
-                <div className={'grow'}>
-                  <Title className={`mb-[10px]`} level={3}><Skeleton className={'max-w-[200px]'} /></Title>
                   <Typography className={`mb-[calc(24px-0.5rem)]`}>
                     <Skeleton className={'max-w-[200px]'} />
                   </Typography>
+                </div>
+                <div className={'grow'}>
+                  <Title className={`mb-[10px]`} level={3}><Skeleton className={'max-w-[200px]'} /></Title>
                   <div className={'flex flex-wrap'}>
                     <Typography className={'w-[60px] mt-2 mr-4'}><Skeleton /></Typography>
                     <Typography className={'w-[60px] mt-2 mr-4'}><Skeleton /></Typography>
@@ -203,15 +197,12 @@ const LoadingSkeletonMainPage: FC<ILoadingSkeletonMainPageProps> = () => {
               </div>
               <div className={'md:grid flex flex-col-reverse grid-cols-[minmax(100px,200px)_minmax(300px,1fr)] md:gap-8 md:space-y-0 space-y-reverse space-y-6 lg:p-8 rounded-lg'}>
                 <div>
-                  <div className={`border-[3px] border-primary-dark rounded-md relative md:block md:w-auto md:h-auto w-[200px] inline-block items-stretch`}>
-                    <Skeleton className={'block w-full h-[100px]'} containerClassName={'flex'}/>
-                  </div>
-                </div>
-                <div className={'grow'}>
-                  <Title className={`mb-[10px]`} level={3}><Skeleton className={'max-w-[200px]'} /></Title>
                   <Typography className={`mb-[calc(24px-0.5rem)]`}>
                     <Skeleton className={'max-w-[200px]'} />
                   </Typography>
+                </div>
+                <div className={'grow'}>
+                  <Title className={`mb-[10px]`} level={3}><Skeleton className={'max-w-[200px]'} /></Title>
                   <div className={'flex flex-wrap'}>
                     <Typography className={'w-[60px] mt-2 mr-4'}><Skeleton /></Typography>
                     <Typography className={'w-[60px] mt-2 mr-4'}><Skeleton /></Typography>

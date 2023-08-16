@@ -29,7 +29,7 @@ export default async function Project ({ params }:{ params: { projectId: string 
          <Title className={'font-inter text-center md:my-24 my-16'}>{thisProject?.name}</Title>
        </Wrapper>
        <Carousel images={images} className={'my-16'} />
-       <Wrapper className={'max-w-[800px]'}>
+       <Wrapper className={'max-w-[800px] pb-[80px]'}>
          {projectData?.map((block) => {
            if (block.type === 'heading_1') return <Title level={3} className={'!mb-6'}>{block.content}</Title>
            else if (block.type === 'paragraph') return  <Typography>{block.content}</Typography>

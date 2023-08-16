@@ -1,20 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // async headers() {
-  //   return [
-  //     {
-  //       // Apply this header to all routes in your application
-  //       source: '/(.*)',
-  //       headers: [
-  //         {
-  //           key: 'Cache-Control',
-  //           value: 'public, max-age=60',
-  //         },
-  //       ],
-  //     },
-  //   ];
-  // },
-  // generateEtags: false,
+  async headers() {
+    return [
+      {
+        // Apply this header to all routes in your application
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0',
+          },
+        ],
+      },
+    ];
+  },
+  generateEtags: false,
   images: {
     remotePatterns: [
       {

@@ -18,7 +18,7 @@ const LoadingSkeletonProjectPage: FC<ILoadingSkeletonProjectPageProps> = () => {
       <div className={'my-16'}>
         <Skeleton className={'h-[300px]'} />
       </div>
-      <Wrapper className={'max-w-[800px]'}>
+      <Wrapper className={'max-w-[800px] pb-[80px]'}>
         <Title level={3} className={'!mb-6'}><Skeleton className={'max-w-[250px]'} /></Title>
         <Typography><Skeleton count={12} /></Typography>
         <Title level={3} className={'!mb-6'}><Skeleton className={'max-w-[250px]'} /></Title>
