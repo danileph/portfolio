@@ -1,114 +1,94 @@
-'use client'
-import {FC, useCallback, useEffect, useState} from 'react';
-import {Section} from "@/components/section";
+"use client";
+import { FC, useCallback, useEffect, useState } from "react";
+import { Section } from "@/components/section";
 import Heading from "@/components/sections/about/Heading";
-import {Wrapper} from "@/components/wrapper";
+import { Wrapper } from "@/components/wrapper";
 import Image from "next/image";
 import Typography from "@/components/ui/typography/Typography";
-import {Container, Engine, IOptions, IParticlesOptions, RecursivePartial} from "tsparticles-engine";
+import {
+  Container,
+  Engine,
+  IOptions,
+  IParticlesOptions,
+  RecursivePartial,
+} from "tsparticles-engine";
 import Particles from "react-tsparticles";
 // import {loadFull} from "tsparticles";
-import {getHomeContent} from "@/api/getHomeContent";
+import { getHomeContent } from "@/api/getHomeContent";
+import { Title } from "@/components/ui/title";
+import { Button } from "@/components/ui/button";
+import { TypeAnimation } from "react-type-animation";
+import { Meteors } from "@/components/meteors";
+import { useTimeout } from "@/hooks/useTimeout";
+import { cn } from "@/lib/utils";
 
 interface IAboutProps {
   content?: string[];
-};
+}
 
-// const particlesOptions: RecursivePartial<IOptions> = {
-//   backgroundMode: {
-//     zIndex: 1,
-//   },
-//   fullScreen: false,
-//   fpsLimit: 120,
-//   interactivity: {
-//     events: {
-//       onClick: {
-//         enable: false,
-//         mode: "push",
-//       },
-//       onHover: {
-//         enable: true,
-//         mode: "repulse",
-//       },
-//       resize: true,
-//     },
-//     modes: {
-//       push: {
-//         quantity: 4,
-//       },
-//       repulse: {
-//         distance: 100,
-//         duration: 0.4,
-//       },
-//     },
-//   },
-//   particles: {
-//     color: {
-//       value: "#DBE8D4",
-//     },
-//     links: {
-//       color: "#525E65",
-//       distance: 150,
-//       enable: true,
-//       opacity: 0.5,
-//       width: 5,
-//     },
-//     collisions: {
-//       enable: false,
-//     },
-//     move: {
-//       direction: "none",
-//       enable: true,
-//       outModes: {
-//         default: "bounce",
-//       },
-//       random: false,
-//       speed: 1,
-//       straight: false,
-//     },
-//     number: {
-//       density: {
-//         enable: true,
-//         area: 1200,
-//       },
-//       value: 45,
-//     },
-//     opacity: {
-//       value: 0.5,
-//     },
-//     shape: {
-//       type: "circle",
-//     },
-//     size: {
-//       value: { min: 4, max: 8 },
-//     },
-//   },
-//   detectRetina: true,
-// }
-
-const About: FC<IAboutProps> = ({content = []}) => {
-  // const particlesInit = useCallback(async (engine: Engine) => {
-  //   await loadFull(engine);
+const About: FC<IAboutProps> = ({ content = [] }) => {
+  const [renderMeteors, setRenderMeteors] = useState(false);
+  useTimeout(() => {
+    setRenderMeteors(true);
+  }, 1000);
+  // useEffect(() => {
+  //   return () => {
+  //     setRenderMeteors(false);
+  //   }
   // }, []);
   //
-  // const particlesLoaded = useCallback(async (container: Container | undefined) => {
-  //   await console.log(container);
-  // }, []);
-
   return (
-    <Section name={'about'} className={'pt-[50px] lg:pb-[48px] flex flex-col relative'}>
-      {/*<Particles className={'absolute top-0 bottom-0 grow blur-[1px]'} id="tsparticles" init={particlesInit} loaded={particlesLoaded} options={particlesOptions} />*/}
-      <Heading />
-        <Wrapper className={'pt-14 pb-10 flex flex-col justify-center items-center space-x-4 relative z-10'}>
-          <Image src={'/imgs/avatar.png'} alt={'avatar'} width={150} height={150} loading={"lazy"}/>
-          <article className={'box-border bg-secondary-dark-tr rounded-lg sm:px-10 py-10 max-w-[550px]'}>
-            {content.map((text,i) => (
-              <Typography key={text} style={{marginBottom: content.length - 1 === i ? 0 : ''}} className={'text-center'}>{text}</Typography>
-            ))}
-          </article>
-        </Wrapper>
+    <Section name={"about"} className={" lg:pb-[48px] flex flex-col relative"}>
+      <Wrapper
+        className={
+          "w-full min-h-[calc(100vh-40px-60px)] pt-14 pb-10 flex items-center justify-between relative z-30"
+        }
+      >
+        <section className={"h-full items-start mb-20"}>
+          <Title className={"mb-8 bg-clip-text lg:text-8xl lg:leading-[1.1]"}>
+            Данил Ефремов
+          </Title>
+          <Title
+            level={3}
+            className={"font-roboto-mono text-my-natural-300 mb-16"}
+          >
+            <TypeAnimation
+              sequence={[
+                "Frontend-разработчик",
+                2000,
+                "Backend-разработчик",
+                2000,
+                "UX/UI-дизайнер",
+                1000,
+              ]}
+              className={"font-roboto-mono"}
+              repeat={Infinity}
+              speed={60}
+            />
+          </Title>
+          <Button className={"block h-[46px] px-4 active:translate-y-1"}>
+            Написать мне
+          </Button>
+        </section>
+        <section className={"mr-10 mt-20"}>
+          <Image
+            src={"/imgs/me.png"}
+            alt={"Photo of Danil Efremov"}
+            width={700}
+            height={700}
+          />
+        </section>
+      </Wrapper>
+      <div
+        className={cn(
+          "h-screen w-full absolute z-20 overflow-hidden invisible",
+          renderMeteors && "visible"
+        )}
+      >
+        <Meteors number={30} />
+      </div>
     </Section>
-  )
-}
+  );
+};
 
 export default About;

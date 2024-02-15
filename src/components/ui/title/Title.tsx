@@ -1,47 +1,61 @@
-import React, {FC, forwardRef} from "react";
+import React, { FC, forwardRef } from "react";
+import { cn } from "@/lib/utils";
 
-interface ITitleProps extends React.HTMLAttributes<HTMLHeadingElement>, React.RefAttributes<HTMLElement> {
+interface ITitleProps
+  extends React.HTMLAttributes<HTMLHeadingElement>,
+    React.RefAttributes<HTMLElement> {
   level?: 1 | 2 | 3;
 }
 
 // eslint-disable-next-line react/display-name
-const Title = forwardRef<HTMLHeadingElement, ITitleProps>(({ level = 1, className, ...other}, ref) => {
-  let RenderNode: FC<Omit<ITitleProps, "level" | 'ref'>> = () => <></>;
+const Title = forwardRef<HTMLHeadingElement, ITitleProps>(
+  ({ level = 1, className, ...other }, ref) => {
+    let RenderNode: FC<Omit<ITitleProps, "level" | "ref">> = () => <></>;
 
-  switch (level) {
-    case 1:
-      // eslint-disable-next-line react/display-name
-      RenderNode = (props) => (
-        <h1
-          className={`lg:text-7xl md:text-6xl text-4xl font-thin uppercase tracking-widest ${className}`}
-          ref={ref}
-          {...props}
-        />
-      );
-      break;
-    case 2:
-      // eslint-disable-next-line react/display-name
-      RenderNode = (props) => (
-        <h2
-          className={`md:text-4xl text-3xl lg:text-start text-center uppercase tracking-wide leading-[3rem] mb-[60px] after:content-[""] inline-block relative after:absolute after:block after:h-[4px] after:bottom-[-30px] after:rght-0 after:bg-primary-dark after:w-full ${className}`}
-          ref={ref}
-          {...props}
-        />
-      );
-      break;
-    case 3:
-      // eslint-disable-next-line react/display-name
-      RenderNode = (props) => (
-        <h3
-          className={`text-xl ${className}`}
-          ref={ref}
-          {...props}
-        />
-      );
-      break;
+    switch (level) {
+      case 1:
+        // eslint-disable-next-line react/display-name
+        RenderNode = (props) => (
+          <h1
+            className={cn(
+              "lg:text-6xl md:text-6xl text-4xl text-my-natural-100 mb-10 font-furore",
+              className
+            )}
+            ref={ref}
+            {...props}
+          />
+        );
+        break;
+      case 2:
+        // eslint-disable-next-line react/display-name
+        RenderNode = (props) => (
+          <h2
+            className={cn(
+              "font-semibold text-4xl mb-12 text-my-natural-100",
+              className
+            )}
+            ref={ref}
+            {...props}
+          />
+        );
+        break;
+      case 3:
+        // eslint-disable-next-line react/display-name
+        RenderNode = (props) => (
+          <h3
+            className={cn(
+              "text-2xl font-semibold mb-8 text-my-natural-100",
+              className
+            )}
+            ref={ref}
+            {...props}
+          />
+        );
+        break;
+    }
+
+    return <RenderNode {...other} />;
   }
-
-  return <RenderNode {...other} />;
-})
+);
 
 export default Title;

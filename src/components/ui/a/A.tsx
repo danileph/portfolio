@@ -1,11 +1,22 @@
-import { FC } from 'react';
+import { FC } from "react";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
-interface IAProps extends React.HTMLAttributes<HTMLAnchorElement>{};
+type IAProps = Omit<React.HTMLAttributes<HTMLAnchorElement>, "href"> & {
+  external?: boolean;
+  href: string;
+};
 
-const A: FC<IAProps> = ({className, ...other}) => {
-  return (
-    <a className={`cursor-pointer inline-block text-primary relative after:content-[""] after:h-[4px] after:w-full after:block after:hover:bg-primary after:absolute after:bottom-[-4px] ${className}`} {...other}/>
-  )
-}
+const A: FC<IAProps> = ({ className, external = false, ...other }) => {
+  const styles = {
+    base: "cursor-pointer inline-block hover:brightness-75 text-sm font-roboto-mono",
+  };
+
+  if (external) {
+    return <Link className={cn(styles.base, className)} {...other} />;
+  }
+
+  return <a className={cn(styles.base, className)} {...other} />;
+};
 
 export default A;

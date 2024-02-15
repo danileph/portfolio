@@ -1,41 +1,142 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
+const config = {
+  darkMode: ["class"],
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
+  prefix: "",
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+      // extend: {
+      //   fontFamily: {
+      //     primary: ["var(--font-tektur)", ...fontFamily.sans],
+      //     secondary: ["var(--font-roboto)", ...fontFamily.mono],
+      //   },
+      // },
+    },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'ellipse-background-footer': 'url("/imgs/ellipse-background-footer.svg")',
-        'ellipse-background-header': 'url("/imgs/ellipse-background-header.svg")',
-        'arrow-3': 'url("/imgs/arrow-3.svg")',
-        'arrow-3-ac': 'url("/imgs/arrow-3-ac.svg")',
-        'chain': 'url("/imgs/chain.svg")',
-        'chain-ac': 'url("/imgs/chain-active.svg")',
+      brightness: {
+        30: ".3",
+      },
+      boxShadow: {
+        page: "0px 0px 50px -10px rgba(24, 30, 40, 0.4)",
+      },
+      scale: {
+        115: "1.15",
       },
       fontFamily: {
-        inter: ['var(--font-inter)'],
-        lack: ['var(--font-lack)'],
+        tektur: "var(--font-tektur)",
+        "roboto-mono": "var(--font-roboto)",
+        furore: "var(--font-furore)",
+      },
+      fontSize: {
+        "2xs": "0.65rem",
+      },
+      backgroundImage: {
+        "background-gradient": "var(--background-gradient)",
+        "text-gradient": "var(--text-gradient)",
       },
       colors: {
-        white: '#DBE8D4',
-        'white-secondary': 'rgba(219,232,212,0.8)',
-        primary: '#73CCA7',
-        'primary-tr': 'rgba(115,204,167,0.2)',
-        'primary-light': 'rgb(142,153,157)',
-        'primary-dark': '#525E65',
-        'primary-dark-tr': 'rgba(82,94,101,0.8)',
-        secondary: '#2E3445',
-        'secondary-dark': '#222732',
-        'secondary-dark-tr': 'rgba(34,39,50,0.8)',
-        blue: '#465D80'
+        "my-natural": {
+          100: "#FFFFFF",
+          300: "#E4E5DC",
+          500: "#CBCCC4",
+          700: "#51524D",
+          720: "#383B40",
+          740: "#2B2E30",
+          760: "#1F2123",
+          800: "#1F2123",
+          900: "#17191a",
+        },
+        "my-primary": {
+          100: "",
+          300: "",
+          500: "#9A37FF",
+          700: "",
+          900: "",
+        },
+        "my-secondary": {
+          100: "#65E5ED",
+          300: "",
+          500: "",
+          700: "",
+          900: "",
+        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+        "my-rounded": "12px",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: 0 },
+          "50%": { opacity: 1 },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: 0,
+          },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "meteor-effect": "meteor 5s linear infinite",
       },
     },
   },
-  plugins: [],
-}
+  plugins: [require("tailwindcss-animate")],
+};
+
+export default config;

@@ -4,11 +4,11 @@ const nextConfig = {
     return [
       {
         // Apply this header to all routes in your application
-        source: '/(.*)',
+        source: "/(.*)",
         headers: [
           {
-            key: 'Cache-Control',
-            value: 'public, max-age=0',
+            key: "Cache-Control",
+            value: "public, max-age=0",
           },
         ],
       },
@@ -18,12 +18,17 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 's3.us-west-2.amazonaws.com',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "s3.us-west-2.amazonaws.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "prod-files-secure.s3.us-west-2.amazonaws.com",
+        pathname: "/**",
       },
     ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -1,15 +1,22 @@
-import {FC, Suspense, useEffect, useRef, useState} from 'react';
-import {default as ImageNext, ImageLoader} from 'next/image';
-import Skeleton from "@/components/skeleton/Skeleton";
+import { FC, Suspense, useEffect, useRef, useState } from "react";
+import { default as ImageNext, ImageLoader } from "next/image";
+import { Skeleton } from "@/components/skeleton/Skeleton";
 
-interface IImageProps extends Omit<React.HTMLAttributes<HTMLElement>, 'children'> {
+interface IImageProps
+  extends Omit<React.HTMLAttributes<HTMLElement>, "children"> {
   src: string | undefined;
   alt: string;
   loading?: "eager" | "lazy" | undefined;
   skeletonClassName?: string;
-};
+}
 
-const Image: FC<IImageProps> = ({skeletonClassName, src, alt, className, ...other}) => {
+const Image: FC<IImageProps> = ({
+  skeletonClassName,
+  src,
+  alt,
+  className,
+  ...other
+}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const refImg = useRef<HTMLImageElement>(null);
 
@@ -17,24 +24,36 @@ const Image: FC<IImageProps> = ({skeletonClassName, src, alt, className, ...othe
     if (refImg?.current?.complete) {
       setIsLoaded(true);
     }
-  }, [refImg?.current?.complete])
+  }, [refImg?.current?.complete]);
 
   useEffect(() => {
     if (!src) {
-      setIsLoaded(true)
+      setIsLoaded(true);
     }
-  }, [src])
+  }, [src]);
 
-  const imageLoader: ImageLoader = ({src}) => {
+  const imageLoader: ImageLoader = ({ src }) => {
     return src;
-  }
+  };
 
   return (
     <div className={`relative ${className}`}>
-      <img ref={refImg} onEnded={() => setIsLoaded(true)} onLoad={() => setIsLoaded(true)} onError={() => setIsLoaded(true)} className={`${isLoaded ? 'visible' : 'invisible absolute'}`} src={src ? src : '/imgs/img-placeholder.svg'} alt={alt} placeholder={'/imgs/img-placeholder.svg'} {...other}/>
-      {!isLoaded && <Skeleton className={`block w-full ${skeletonClassName}`} containerClassName={'flex'}/>}
+      <img
+        ref={refImg}
+        onEnded={() => setIsLoaded(true)}
+        onLoad={() => setIsLoaded(true)}
+        onError={() => setIsLoaded(true)}
+        className={`${isLoaded ? "visible" : "invisible absolute"}`}
+        src={src ? src : "/imgs/img-placeholder.svg"}
+        alt={alt}
+        placeholder={"/imgs/img-placeholder.svg"}
+        {...other}
+      />
+      {!isLoaded && (
+        <Skeleton image className={`block w-full ${skeletonClassName}`} />
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default Image;

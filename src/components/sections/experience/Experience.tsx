@@ -1,153 +1,81 @@
-import { FC } from 'react';
-import {Section} from "@/components/section";
-import {Wrapper} from "@/components/wrapper";
-import {ContentViewer} from "@/components/content-viewer";
-import {IExperience} from "@/models/IExperience";
-import {ITechnology} from "@/models/ITechnology";
-import {IProject} from "@/models/IProject";
-import {getExperience} from "@/api/getExperience";
-import {getTechnologies} from "@/api/getTechnologies";
-import {log} from "util";
-import {getProjects} from "@/api/getProjects";
+import { FC, Suspense, useMemo } from "react";
+import { Section } from "@/components/section";
+import { Wrapper } from "@/components/wrapper";
+import { ContentViewer } from "@/components/content-viewer";
+import { IExperience } from "@/models/IExperience";
+import { ITechnology } from "@/models/ITechnology";
+import { IProject } from "@/models/IProject";
+import { getExperience } from "@/api/getExperience";
+import { getTechnologies } from "@/api/getTechnologies";
+import { log } from "util";
+import { getProjects } from "@/api/getProjects";
 import ExperienceBlock from "@/components/content-viewer/ExperienceBlock";
-
+import { Title } from "@/components/ui/title";
+import { routes } from "@/lib/consts/routes";
+import Typography from "@/components/ui/typography/Typography";
+import { TechnologiesClient } from "@/components/sections/technologies/TechnologiesClient";
+import { ExperienceAccordion } from "@/components/expereince-accordion";
+import { DATE_FORMAT } from "@/lib/consts/date-format";
+import { Tag } from "@/components/ui/tag";
+import {
+  ExperienceClient,
+  IExperienceClient,
+} from "@/components/sections/experience/ExperienceClient";
+import dayjs from "dayjs";
 
 interface IExperienceProps {
   content?: string[];
-};
+}
 
-const Experience: FC<IExperienceProps> = async ({content = []}) => {
-  // const experiences: IExperience[] = [
-  //   {
-  //     company: 'ООО "Смарт Решения"',
-  //     position: 'Frontend разработчик',
-  //     achievements: 'Разрабатывал интерфейсы для сложных систем. Настраивал интеграцию с API',
-  //     projects: [
-  //       {
-  //         name: 'РРЦ',
-  //         description: 'dd',
-  //         content: '',
-  //         techStack: [
-  //           {
-  //             name: 'string',
-  //             docRef: 'string',
-  //             isOwned: true,
-  //           }
-  //         ]
-  //       },
-  //     ],
-  //     techStack: [
-  //       {
-  //         name: 'React',
-  //         docRef: 'string',
-  //         isOwned: true,
-  //       },
-  //       {
-  //         name: 'TS',
-  //         docRef: 'string',
-  //         isOwned: true,
-  //       },
-  //       {
-  //         name: 'Styled components',
-  //         docRef: 'string',
-  //         isOwned: true,
-  //       }
-  //     ],
-  //     period: {
-  //       start: new Date(),
-  //       end: new Date(),
-  //     }
-  //   },
-  //   {
-  //     company: 'ООО "Смарт Решения"',
-  //     position: 'Frontend разработчик',
-  //     achievements: 'Разрабатывал интерфейсы для сложных систем. Настраивал интеграцию с API',
-  //     projects: [
-  //       {
-  //         name: 'Adapter',
-  //         description: 'dd',
-  //         content: '',
-  //         techStack: [
-  //           {
-  //             name: 'string',
-  //             docRef: 'string',
-  //             isOwned: true,
-  //           }
-  //         ]
-  //       },
-  //     ],
-  //     techStack: [
-  //       {
-  //         name: 'React',
-  //         docRef: 'string',
-  //         isOwned: true,
-  //       },
-  //       {
-  //         name: 'TS',
-  //         docRef: 'string',
-  //         isOwned: true,
-  //       },
-  //       {
-  //         name: 'Styled components',
-  //         docRef: 'string',
-  //         isOwned: true,
-  //       }
-  //     ],
-  //     period: {
-  //       start: new Date(),
-  //       end: new Date(),
-  //     }
-  //   },
-  //   {
-  //     company: 'ООО "Смарт Решения"',
-  //     position: 'Frontend разработчик',
-  //     achievements: 'Разрабатывал интерфейсы для сложных систем. Настраивал интеграцию с API',
-  //     projects: [
-  //       {
-  //         name: '',
-  //         description: 'dd',
-  //         content: '',
-  //         techStack: [
-  //           {
-  //             name: 'string',
-  //             docRef: 'string',
-  //             isOwned: true,
-  //           }
-  //         ]
-  //       },
-  //     ],
-  //     techStack: [
-  //       {
-  //         name: 'React',
-  //         docRef: 'string',
-  //         isOwned: true,
-  //       },
-  //       {
-  //         name: 'TS',
-  //         docRef: 'string',
-  //         isOwned: true,
-  //       },
-  //       {
-  //         name: 'Styled components',
-  //         docRef: 'string',
-  //         isOwned: true,
-  //       }
-  //     ],
-  //     period: {
-  //       start: new Date(),
-  //       end: new Date(),
-  //     }
-  //   }
-  // ]
+const Experience: FC<IExperienceProps> = async ({ content = [] }) => {
+  const sectionRoute = "experience";
   const experiences = await getExperience();
+  const technologies =
+    experiences
+      ?.flatMap(
+        (exp) =>
+          exp.projects?.flatMap(
+            (project) =>
+              project.myTechnologies?.map((tech) => ({
+                expId: exp.id ?? "",
+                techName: tech.name ?? "",
+              })) ?? []
+          ) ?? []
+      )
+      .filter(
+        (value, i, array) =>
+          array.findIndex((item) => item.techName === value.techName) === i
+      ) ?? [];
+  const experienceForClient: IExperienceClient[] =
+    experiences?.map(({ period, ...exp }) => ({
+      ...exp,
+      workingPeriod: `${period?.start?.format(DATE_FORMAT).toUpperCase()} — ${
+        period?.end?.isValid()
+          ? period?.end?.format(DATE_FORMAT).toUpperCase()
+          : "ПО Н. В."
+      }`,
+    })) ?? [];
 
   return (
-    <ContentViewer name={'experience'} title={'Опыт работы'} description={content}>
-      {experiences?.map((experience) => (
-        <ExperienceBlock key={experience.id} data={experience} />
-      ))}
-    </ContentViewer>
-  )
-}
+    <Wrapper className={"w-full max-w-[1000px]"}>
+      <ExperienceClient
+        experiences={experienceForClient}
+        technologies={technologies}
+      />
+    </Wrapper>
+  );
+
+  // return (
+  //   <ContentViewer
+  //     name={"experience"}
+  //     title={"Опыт работы"}
+  //     description={content}
+  //   >
+  //     {experiences?.map((experience) => (
+  //       <ExperienceBlock key={experience.id} data={experience} />
+  //     ))}
+  //   </ContentViewer>
+  // );
+};
 
 export default Experience;

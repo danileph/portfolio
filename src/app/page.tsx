@@ -1,29 +1,51 @@
-import Image from 'next/image'
+import Image from "next/image";
 import About from "@/components/sections/about/About";
-import {Experience} from "@/components/sections/experience";
+import { Experience } from "@/components/sections/experience";
 import Projects from "@/components/sections/projects/Projects";
-import {getHomeContent} from "@/api/getHomeContent";
+import { getHomeContent } from "@/api/getHomeContent";
 import Technologies from "@/components/sections/technologies/Technologies";
 import RouteChangeProvider from "@/components/route/RouteChangeProvider";
 import RootProvider from "@/components/root-provider/RootProvider";
-import {Suspense} from "react";
-import Loading from "@/app/loading";
+import { Suspense } from "react";
+import Skills from "@/components/sections/skills/Skills";
+import { Wrapper } from "@/components/wrapper";
+import { Title } from "@/components/ui/title";
+import { routes } from "@/lib/consts/routes";
+import Typography from "@/components/ui/typography/Typography";
+import { ProjectsClient } from "@/components/sections/projects/ProjectsClient";
+import { Section } from "@/components/section";
 
 export const revalidate = 0;
 export default async function Home() {
-  const homeContentPromis = getHomeContent();
-  const [homeContent] = await Promise.all([homeContentPromis]);
+  // const homeContentPromis = getHomeContent();
+  // const [homeContent] = await Promise.all([homeContentPromis]);
 
   return (
-    <Suspense fallback={<Loading />}>
-      <main className="min-h-screen">
-        <RootProvider>
-          <About content={homeContent?.find(block => block.title === 'About')?.content} />
-          <Experience content={homeContent?.find(block => block.title === 'Experience')?.content} />
-          <Projects content={homeContent?.find(block => block.title === 'Projects')?.content} />
-          <Technologies content={homeContent?.find(block => block.title === 'Tech stack')?.content} />
-        </RootProvider>
-      </main>
-    </Suspense>
-  )
+    <main className="min-h-screen">
+      <RootProvider>
+        <About />
+        <Skills />
+        {routes.map(
+          (route) =>
+            route.isShown && (
+              <Section
+                key={route.src}
+                name={route.src}
+                className={"lg:py-32 py-20"}
+              >
+                <Wrapper className={"w-full max-w-[1000px]"}>
+                  <Title className={"font-semibold text-center"}>
+                    {route.name}
+                  </Title>
+                  <Typography className={"mb-24 text-center"}>
+                    {route.description}
+                  </Typography>
+                </Wrapper>
+                <Suspense fallback={route.fallback}>{route.component}</Suspense>
+              </Section>
+            )
+        )}
+      </RootProvider>
+    </main>
+  );
 }

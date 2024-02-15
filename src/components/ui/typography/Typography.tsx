@@ -1,11 +1,15 @@
-import { FC } from 'react';
+import { FC } from "react";
+import { cn } from "@/lib/utils";
 
-interface ITypographyProps extends React.HTMLAttributes<HTMLParagraphElement>{};
+interface ITypographyProps extends React.HTMLAttributes<HTMLParagraphElement> {}
 
-const Typography: FC<ITypographyProps> = ({className, ...other}) => {
+const Typography: FC<ITypographyProps> = ({ className, ...other }) => {
   return (
-    <p className={`mb-6 leading-6 text-white-secondary tracking-wide ${className}`} {...other}></p>
-  )
-}
+    <p
+      className={cn("font-roboto-mono mb-6 font-normal", className)}
+      {...other}
+    ></p>
+  );
+};
 
 export default Typography;
