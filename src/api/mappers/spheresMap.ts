@@ -5,9 +5,7 @@ import {
 } from "@notionhq/client/build/src/api-endpoints";
 import { ISphere } from "@/models/ISphere";
 
-export const spheresMap = (
-  data: (PageObjectResponse | PartialPageObjectResponse)[]
-) => {
+export const spheresMap = (data: Record<string, any>[]) => {
   const mappedData: ISphere[] = [];
   data.forEach((sphere, i) => {
     const properties = sphere.properties;

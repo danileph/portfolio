@@ -10,9 +10,7 @@ import dayjs from "dayjs";
 import { getProjects } from "@/api/getProjects";
 import { DATE_FORMAT } from "@/lib/consts/date-format";
 
-export const experienceMap = async (
-  data: (PageObjectResponse | PartialPageObjectResponse)[]
-) => {
+export const experienceMap = async (data: Record<string, any>[]) => {
   const mappedData: IExperience[] = [];
   const projects = await getProjects();
   data.forEach((experience, i) => {

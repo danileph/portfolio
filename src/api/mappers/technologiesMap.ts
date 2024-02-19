@@ -8,9 +8,7 @@ import { getTechnologies } from "@/api/getTechnologies";
 import { getSpheres } from "@/api/getSpheres";
 import { spheresMap } from "@/api/mappers/spheresMap";
 
-export const technologiesMap = async (
-  data: (PageObjectResponse | PartialPageObjectResponse)[]
-) => {
+export const technologiesMap = async (data: Record<string, any>[]) => {
   const mappedData: ITechnology[] = [];
   const _spheres = getSpheres();
   const [spheres] = await Promise.all([_spheres]);
