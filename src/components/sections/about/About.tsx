@@ -22,7 +22,6 @@ import { Meteors } from "@/components/meteors";
 import { useTimeout } from "@/hooks/useTimeout";
 import { cn } from "@/lib/utils";
 import useViewport from "@/hooks/useViewport";
-import { main } from "@popperjs/core";
 
 interface IAboutProps {
   content?: string[];

@@ -5,12 +5,9 @@ import { Wrapper } from "@/components/wrapper";
 import { socialMedias } from "@/lib/consts/social-medias";
 import Image from "next/image";
 import useViewport from "@/hooks/useViewport";
-import ClickAwayListener from "@mui/base/ClickAwayListener";
-import Link from "next/link";
 import { useActiveSection } from "@/components/route/hooks/useActiveSection";
 import { usePathname, useRouter } from "next/navigation";
 import { useScroll } from "@/components/route/hooks/useScroll";
-import { useWindowScroll } from "@uidotdev/usehooks";
 import { cn } from "@/lib/utils";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import {
@@ -24,6 +21,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { MenuItem } from "@/components/menu-item/MenuItem";
+import useWindowScroll from "@/hooks/useWindowScroll";
 
 interface IHeaderProps {}
 
