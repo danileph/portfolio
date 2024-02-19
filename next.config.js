@@ -14,9 +14,9 @@ const nextConfig = {
       },
     ];
   },
-  // reactStrictMode: false,
+  reactStrictMode: false,
   generateEtags: false,
-  // ignoreDuringBuilds: true,
+  ignoreDuringBuilds: true,
   images: {
     remotePatterns: [
       {
