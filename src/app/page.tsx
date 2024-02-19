@@ -31,13 +31,13 @@ export default async function Home() {
               <Section
                 key={route.src}
                 name={route.src}
-                className={"lg:py-32 py-20"}
+                className={"lg:py-32 md:py-20 py-10"}
               >
                 <Wrapper className={"w-full max-w-[1000px]"}>
-                  <Title className={"font-semibold text-center"}>
+                  <Title className={"font-semibold md:text-center"}>
                     {route.name}
                   </Title>
-                  <Typography className={"mb-24 text-center"}>
+                  <Typography className={"mb-10 md:mb-24 md:text-center"}>
                     {route.description}
                   </Typography>
                 </Wrapper>

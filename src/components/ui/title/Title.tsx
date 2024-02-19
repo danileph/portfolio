@@ -18,7 +18,7 @@ const Title = forwardRef<HTMLHeadingElement, ITitleProps>(
         RenderNode = (props) => (
           <h1
             className={cn(
-              "lg:text-6xl md:text-6xl text-4xl text-my-natural-100 mb-10 font-furore",
+              "lg:text-6xl md:text-6xl text-3xl text-my-natural-100 mb-6 md:mb-10 font-furore",
               className
             )}
             ref={ref}
@@ -31,7 +31,7 @@ const Title = forwardRef<HTMLHeadingElement, ITitleProps>(
         RenderNode = (props) => (
           <h2
             className={cn(
-              "font-semibold text-4xl mb-12 text-my-natural-100",
+              "font-semibold text-3xl md:text-4xl mb-12 text-my-natural-100",
               className
             )}
             ref={ref}
@@ -44,7 +44,7 @@ const Title = forwardRef<HTMLHeadingElement, ITitleProps>(
         RenderNode = (props) => (
           <h3
             className={cn(
-              "text-2xl font-semibold mb-8 text-my-natural-100",
+              " text-xl md:text-2xl font-semibold mb-8 text-my-natural-100",
               className
             )}
             ref={ref}

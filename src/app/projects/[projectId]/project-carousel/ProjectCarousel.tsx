@@ -18,13 +18,16 @@ interface IProjectCarouselProps extends React.HTMLAttributes<HTMLElement> {
   images: { src: string; alt: string }[];
 }
 
-export const ProjectCarousel: FC<IProjectCarouselProps> = ({ images }) => {
+export const ProjectCarousel: FC<IProjectCarouselProps> = ({
+  images,
+  className,
+}) => {
   return (
     <Carousel
       opts={{
         align: "start",
       }}
-      className="w-full my-24"
+      className={cn("w-full my-10 md:my-24")}
     >
       <PhotoProvider>
         <CarouselContent>
@@ -60,8 +63,8 @@ export const ProjectCarousel: FC<IProjectCarouselProps> = ({ images }) => {
           ))}
         </CarouselContent>
       </PhotoProvider>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className={"invisible md:visible"} />
+      <CarouselNext className={"invisible md:visible"} />
       <CarouselIndicator />
     </Carousel>
   );

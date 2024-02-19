@@ -16,7 +16,7 @@ const SkillCard = forwardRef<HTMLDivElement, ISkillCardProps>(
       <section
         className={cn(
           "px-14 py-24 bg-my-natural-760 border-my-natural-720 border-2 text-center shadow-page relative rounded-my-rounded",
-          primary && "scale-110 brightness-100 z-20",
+          primary && "xl:scale-110 brightness-100 z-20",
           !primary && "brightness-95",
           className
         )}

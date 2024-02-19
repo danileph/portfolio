@@ -28,7 +28,9 @@ const Footer: FC<IFooterProps> = () => {
         <Typography className={"mb-3"}>Напиши мне</Typography>
         <Title level={2}>Есть проект? Давай обсудим!</Title>
         <div
-          className={"space-x-10 flex items-center justify-center w-full mb-24"}
+          className={
+            " space-y-2 md:space-y-0 md:space-x-10 flex flex-col md:flex-row items-center justify-center w-full mb-24"
+          }
         >
           <Button variant={"primary-link"} className={""}>
             t.me/danileph

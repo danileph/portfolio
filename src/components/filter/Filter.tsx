@@ -63,17 +63,21 @@ const Filter: FC<IFilterProps> = forwardRef<HTMLDivElement, IFilterProps>(
 
     return (
       <div ref={ref} className={cn("flex items-center", className)}>
-        <ListFilter className={"ml-2 h-5 w-5 mr-4"} />
-        {flattenedFilterItems.map((flattenedFilterItem) => (
-          <FilterItem
-            key={flattenedFilterItem.key}
-            onClick={() => onClick(flattenedFilterItem)}
-            amount={flattenedFilterItem.amount}
-            selected={selectedFilter.key === flattenedFilterItem.key}
-          >
-            {flattenedFilterItem.label}
-          </FilterItem>
-        ))}
+        <ListFilter className={"ml-2 h-5 w-5 mr-4 flex-none"} />
+        <div
+          className={"flex items-center overflow-x-auto flex-1 no-scrollbar"}
+        >
+          {flattenedFilterItems.map((flattenedFilterItem) => (
+            <FilterItem
+              key={flattenedFilterItem.key}
+              onClick={() => onClick(flattenedFilterItem)}
+              amount={flattenedFilterItem.amount}
+              selected={selectedFilter.key === flattenedFilterItem.key}
+            >
+              {flattenedFilterItem.label}
+            </FilterItem>
+          ))}
+        </div>
       </div>
     );
   }

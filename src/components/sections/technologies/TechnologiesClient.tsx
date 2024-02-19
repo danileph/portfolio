@@ -34,7 +34,11 @@ export const TechnologiesClient: FC<ITechnologiesClientProps> = ({
           setSelectedFilter(selectedFilter.key)
         }
       />
-      <section className={"grid grid-cols-3 grid-flow-row gap-6"}>
+      <section
+        className={
+          "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row gap-6"
+        }
+      >
         {filteredTechnologies?.map((tech) => (
           <TechCard
             className={"flex-1"}

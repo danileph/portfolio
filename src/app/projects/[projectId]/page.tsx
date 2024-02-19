@@ -51,7 +51,7 @@ export default async function Project({
 
   return (
     <Suspense fallback={<Loading />}>
-      <main className={"relative z-10 pb-20 pt-28"}>
+      <main className={"relative z-10 pb-10 md:pb-20 pt-10 md:pt-28"}>
         <Wrapper className={"max-w-[1000px]"}>
           {/*<div className={"flex items-center space-x-8 mb-6"}>*/}
           {/*  <A href={""} className={"inline-flex items-center"}>*/}
@@ -66,33 +66,32 @@ export default async function Project({
           <Title>{thisProject?.name}</Title>
           <div
             className={
-              "grid grid-cols-12 grid-flow-row gap-4 justify-items-start max-w-[600px] my-24 items-baseline"
+              "grid grid-cols-[minmax(min-content,_100px)_auto] grid-flow-row gap-4 justify-items-start max-w-[600px] md:my-24 items-baseline"
             }
           >
-            <span className={"col-span-3 font-roboto-mono uppercase text-xs"}>
+            <span className={"col-span-1 font-roboto-mono uppercase text-xs"}>
               Тип:
             </span>
-            <Typography className={"col-span-9 m-0 font-semibold"}>
+            <Typography className={"col-span-1 m-0 font-semibold"}>
               {thisProject?.type}
             </Typography>
-
             {thisExperience?.company && (
               <>
                 <span
-                  className={"col-span-3 uppercase text-xs font-roboto-mono"}
+                  className={"col-span-1 uppercase text-xs font-roboto-mono"}
                 >
                   Организация:
                 </span>
-                <Typography className={"col-span-9 m-0 font-semibold"}>
+                <Typography className={"col-span-1 m-0 font-semibold"}>
                   {thisExperience?.company}
                 </Typography>
               </>
             )}
-
-            <span className={"col-span-3 font-roboto-mono uppercase text-xs"}>
+            <span className={"col-span-1 font-roboto-mono uppercase text-xs"}>
               Технологии:
             </span>
-            <div className={"flex flex-wrap -mt-2 mb-6 col-span-9"}>
+
+            <div className={"flex flex-wrap -mt-2 mb-6 col-span-1"}>
               {thisProject?.myTechnologies?.map((tech) => (
                 <Tag key={tech.id} className={"mt-2 mr-2"}>
                   {tech.name}

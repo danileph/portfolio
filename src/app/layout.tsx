@@ -13,8 +13,12 @@ const tektur = localFont({
   src: "../../public/fonts/tektur/tektur.ttf",
   variable: "--font-tektur",
 });
-const roboto = Roboto_Mono({
-  subsets: ["cyrillic", "latin"],
+// const roboto = Roboto_Mono({
+//   subsets: ["cyrillic", "latin"],
+//   variable: "--font-roboto",
+// });
+const roboto = localFont({
+  src: "../../public/fonts/roboto-mono/roboto-mono.ttf",
   variable: "--font-roboto",
 });
 const furore = localFont({

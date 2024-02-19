@@ -70,7 +70,10 @@ const Skills: FC<ISkillsProps> = async ({ content = [] }) => {
   const spheres = await getSpheres();
 
   return (
-    <Section name={"skills"} className={"flex flex-col lg:py-32 py-20"}>
+    <Section
+      name={"skills"}
+      className={"flex flex-col lg:py-32 py-10 md:py-20"}
+    >
       <Wrapper className={"w-full"}>
         <Title level={2} className={"text-center mb-4"}>
           Работаю и развиваюсь{" "}
@@ -83,10 +86,14 @@ const Skills: FC<ISkillsProps> = async ({ content = [] }) => {
           продуманным дизайном интерфейса
         </Typography>
       </Wrapper>
-      <Wrapper className={"flex w-full"}>
+      <Wrapper
+        className={
+          "grid w-full grid-flow-row grid-cols-1 items-center  md:items-stretch md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-0 mt-10 md:mt-20"
+        }
+      >
         {skills.map((skill, i) => (
           <SkillCard
-            className={"grow mt-20"}
+            className={cn("grow", i === 1 && "order-first xl:order-none")}
             primary={i === 1}
             key={skill.title}
             title={skill.title}
@@ -108,11 +115,11 @@ const Skills: FC<ISkillsProps> = async ({ content = [] }) => {
           </SkillCard>
         ))}
       </Wrapper>
-      <Wrapper className={"mt-24 justify-end flex w-full"}>
-        <Button variant={"link"}>
-          Скачать резюме <ArrowDownToLine className={"ml-2 h-5 w-5"} />
-        </Button>
-      </Wrapper>
+      {/*<Wrapper className={"mt-24 justify-end flex w-full"}>*/}
+      {/*  <Button variant={"link"}>*/}
+      {/*    Скачать резюме <ArrowDownToLine className={"ml-2 h-5 w-5"} />*/}
+      {/*  </Button>*/}
+      {/*</Wrapper>*/}
     </Section>
   );
 };

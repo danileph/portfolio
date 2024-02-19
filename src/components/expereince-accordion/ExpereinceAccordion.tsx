@@ -46,32 +46,34 @@ const ExperienceAccordionItem: FC<IExperienceAccordionItemProps> = ({
     <AccordionItem className={cn("", className)} {...props}>
       <AccordionTrigger
         className={
-          "py-8 px-6 bg-[#242629] [data-state=open]:bg-[#2B2E30] text-start rounded-my-rounded justify-center"
+          "py-8 px-6 bg-[#242629] [data-state=open]:bg-[#2B2E30] text-start rounded-my-rounded justify-between"
         }
       >
-        <p className={"flex-1 text-my-natural-100"}>
-          {data ? data.company.name : <Skeleton className={"w-[100px]"} />}
-        </p>
-        <p className={"text-xs font-normal mr-8"}>
-          {data ? data.workingPeriod : <Skeleton className={"w-[80px]"} />}
-        </p>
+        <div className={"w-full flex flex-col md:flex-row md:items-center"}>
+          <p className={"md:flex-1 text-my-natural-100"}>
+            {data ? data.company.name : <Skeleton className={"w-[100px]"} />}
+          </p>
+          <p className={"text-xs font-normal mr-8"}>
+            {data ? data.workingPeriod : <Skeleton className={"w-[80px]"} />}
+          </p>
+        </div>
       </AccordionTrigger>
       <AccordionContent
         className={
-          "bg-[#1F2123] border-my-natural-720 border-2 p-6 mt-8 mb-3 flex w-full items-center rounded-my-rounded"
+          "bg-[#1F2123] border-my-natural-720 border-2 p-6 mt-8 mb-3 flex w-full md:items-center rounded-my-rounded flex-col md:flex-row space-y-6 md:space-y-0"
         }
       >
         <div className={"flex-1"}>
-          <div className={"flex space-x-4 text-xs mb-4"}>
-            <span className={"inline-flex items-center"}>
+          <div className={"flex flex-wrap text-xs mb-2"}>
+            <span className={"inline-flex items-center mb-2 mr-4"}>
               <MapPin className={"w-4 h-4 mr-1.5 text-my-primary-500"} />
               {data ? data.city : <Skeleton className={"w-[60px]"} />}
             </span>
             <a
-              className={"inline-flex items-center"}
+              className={"inline-flex items-center mb-2"}
               href={data ? data.company.name : ""}
             >
-              <ExternalLink className={"w-4 h-4 mr-1.5 text-my-primary-500"} />
+              <ExternalLink className={"w-4 h-4 mr-1.5 text-my-primary-500 "} />
               {data ? data.company.site : <Skeleton className={"w-[60px]"} />}
             </a>
           </div>
@@ -127,7 +129,7 @@ const ExperienceAccordionItem: FC<IExperienceAccordionItemProps> = ({
             </div>
           )}
         </div>
-        <div className={"ml-6"}>
+        <div className={"md:ml-6 max-w-[150px]"}>
           {data ? (
             <ImagePlaceholder className={"w-[150px] h-[150px]"} image={false}>
               {({ setIsError, setIsLoading, imgStyles }) => (

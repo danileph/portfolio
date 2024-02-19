@@ -20,12 +20,12 @@ export const FilterItem: FC<IFilterItemProps> = ({
       <Button
         variant={"link"}
         className={cn(
-          "relative p-0 mr-4 last:mr-0 transition font-semibold",
+          "relative p-0 mr-4 last:mr-0 transition font-semibold h-[50px]",
           selected && "text-my-secondary-100"
         )}
         {...props}
       >
-        <span className={"text-2xs absolute -top-1.5 -right-2"}>
+        <span className={"text-2xs absolute top-0 -right-2"}>
           {addZeroToNumber(amount)}
         </span>
         {children}

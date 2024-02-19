@@ -45,7 +45,7 @@ export const technologiesMap = async (
           : null,
       spheres:
         "Spheres" in properties && properties["Spheres"].relation.length !== 0
-          ? spheres.filter((item) =>
+          ? spheres?.filter((item) =>
               properties["Spheres"].relation.find((rel) => item.id === rel.id)
             )
           : null,
