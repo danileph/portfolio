@@ -63,31 +63,41 @@ export default async function Project({
           {/*    Перейти на сайт*/}
           {/*  </A>*/}
           {/*</div>*/}
-          <Title>{thisProject?.name}</Title>
+          <Title className={"mb-10"}>{thisProject?.name}</Title>
           <div
             className={
-              "grid grid-cols-[minmax(min-content,_100px)_auto] grid-flow-row gap-4 justify-items-start max-w-[600px] md:my-24 items-baseline"
+              "grid grid-cols-1 md:grid-cols-[minmax(min-content,_100px)_auto] grid-flow-row gap-4 justify-items-start max-w-[600px] md:my-24 items-baseline"
             }
           >
-            <span className={"col-span-1 font-roboto-mono uppercase text-xs"}>
+            <span
+              className={
+                "col-span-1 font-roboto-mono uppercase text-xs hidden md:block"
+              }
+            >
               Тип:
             </span>
-            <Typography className={"col-span-1 m-0 font-semibold"}>
+            <Typography className={"col-span-1 m-0 font-medium -mb-2 md:mb-0"}>
               {thisProject?.type}
             </Typography>
             {thisExperience?.company && (
               <>
                 <span
-                  className={"col-span-1 uppercase text-xs font-roboto-mono"}
+                  className={
+                    "col-span-1 uppercase text-xs font-roboto-mono hidden md:block"
+                  }
                 >
                   Организация:
                 </span>
-                <Typography className={"col-span-1 m-0 font-semibold"}>
+                <Typography className={"col-span-1 m-0 font-medium"}>
                   {thisExperience?.company}
                 </Typography>
               </>
             )}
-            <span className={"col-span-1 font-roboto-mono uppercase text-xs"}>
+            <span
+              className={
+                "col-span-1 font-roboto-mono uppercase text-xs hidden md:block"
+              }
+            >
               Технологии:
             </span>
 

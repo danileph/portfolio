@@ -34,13 +34,13 @@ export const ProjectCarousel: FC<IProjectCarouselProps> = ({
           {images.map((image) => (
             <CarouselItem
               key={image.src}
-              className="md:basis-1/2 lg:basis-1/3 pl-2 cursor-pointer"
+              className="md:basis-1/2 xl:basis-1/3 pl-2 cursor-pointer"
             >
-              <PhotoView src={image.src}>
-                <ImagePlaceholder
-                  className={"rounded-lg bg-my-natural-900 brightness-125"}
-                >
-                  {({ setIsError, setIsLoading, imgStyles }) => (
+              <ImagePlaceholder
+                className={"rounded-lg bg-my-natural-900 brightness-125"}
+              >
+                {({ setIsError, setIsLoading, imgStyles }) => (
+                  <PhotoView src={image.src}>
                     <img
                       src={image.src}
                       alt={image.alt}
@@ -56,9 +56,9 @@ export const ProjectCarousel: FC<IProjectCarouselProps> = ({
                         setIsError(true);
                       }}
                     />
-                  )}
-                </ImagePlaceholder>
-              </PhotoView>
+                  </PhotoView>
+                )}
+              </ImagePlaceholder>
             </CarouselItem>
           ))}
         </CarouselContent>

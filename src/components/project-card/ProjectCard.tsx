@@ -111,7 +111,7 @@ export const ProjectCard: FC<IProjectCardProps> = ({
           <div
             ref={tagRef}
             className={
-              "absolute hidden group-hover:flex items-center left-1/2 top-1/2 -translate-x-1/2 bg-[#242629]/40 text-my-natural-300/70 py-2 px-4 font-normal text-xs rounded-full"
+              "absolute hidden lg:group-hover:flex items-center left-1/2 top-1/2 -translate-x-1/2 bg-[#242629]/40 text-my-natural-300/70 py-2 px-4 font-normal text-xs rounded-full"
             }
             style={{
               top: tagTop,

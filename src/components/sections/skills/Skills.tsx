@@ -114,6 +114,15 @@ const Skills: FC<ISkillsProps> = async ({ content = [] }) => {
             ))}
           </SkillCard>
         ))}
+        <section
+          className={
+            "sm:hidden md:flex xl:hidden justify-center items-center px-14 py-24 border-my-natural-720 border-2 border-dashed text-center relative rounded-my-rounded"
+          }
+        >
+          <Title level={3} className={"text-my-natural-720"}>
+            В процессе освоения чего-то нового...
+          </Title>
+        </section>
       </Wrapper>
       {/*<Wrapper className={"mt-24 justify-end flex w-full"}>*/}
       {/*  <Button variant={"link"}>*/}

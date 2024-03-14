@@ -126,8 +126,8 @@ const TechCard: ForwardRefExoticComponent<
                 <img
                   src={data.image.src}
                   alt={data.image.src}
-                  width={100}
-                  height={100}
+                  width={40}
+                  height={40}
                   className={cn("mr-4", imgStyles)}
                   onLoad={() => {
                     setIsLoading(false);
