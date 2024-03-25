@@ -32,11 +32,15 @@ const Footer: FC<IFooterProps> = () => {
             " space-y-2 md:space-y-0 md:space-x-10 flex flex-col md:flex-row items-center justify-center w-full mb-24"
           }
         >
-          <Button variant={"primary-link"} className={""}>
-            t.me/danileph
-          </Button>
+          <a href={"https://www.t.me/danileph"} target="_blank">
+            <Button variant={"primary-link"} className={""}>
+              t.me/danileph
+            </Button>
+          </a>
           <Typography className={"m-0"}>или</Typography>
-          <Button variant={"primary-link"}>danileph@bk.ru</Button>
+          <a href="mailto:danileph@bk.ru">
+            <Button variant={"primary-link"}>danileph@bk.ru</Button>
+          </a>
         </div>
         <Typography className={"text-xs"}>
           © Д. В. Ефремов, {new Date().getFullYear()} г.

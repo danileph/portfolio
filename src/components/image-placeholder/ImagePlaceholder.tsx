@@ -79,8 +79,8 @@ export const ImagePlaceholder: FC<IImagePlaceholderProps> = ({
       <Image
         src={"/imgs/img-placeholder.svg"}
         alt={"placeholder"}
-        height={1000}
-        width={1000}
+        height={625.5}
+        width={1110}
         className={cn("hidden", isError && "block")}
       />
       {children({

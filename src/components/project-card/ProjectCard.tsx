@@ -90,8 +90,8 @@ export const ProjectCard: FC<IProjectCardProps> = ({
                 )}
                 src={data.previewImg.src}
                 alt={data.previewImg.alt}
-                width={1000}
-                height={1000}
+                width={1110}
+                height={625.5}
                 onLoad={() => setIsLoading(false)}
                 onEnded={() => setIsLoading(false)}
                 onError={() => {

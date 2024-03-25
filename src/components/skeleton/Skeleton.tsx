@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 interface ISkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   image?: boolean;
@@ -14,6 +14,7 @@ function Skeleton({ className, image, ...props }: ISkeletonProps) {
     if (image && ref && ref.current) {
       const rootElem = ref.current;
       const initHeight = () => {
+        console.log(rootElem.offsetWidth);
         setHeight((rootElem.offsetWidth * 2) / 3);
       };
       initHeight();
@@ -24,7 +25,7 @@ function Skeleton({ className, image, ...props }: ISkeletonProps) {
         window.removeEventListener("resize", initHeight);
       };
     }
-  }, []);
+  }, [ref.current]);
 
   return (
     <div

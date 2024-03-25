@@ -93,9 +93,11 @@ const About: FC<IAboutProps> = ({ content = [] }) => {
               speed={60}
             />
           </Title>
-          <Button className={"block h-[46px] px-4 active:translate-y-1"}>
-            Написать мне
-          </Button>
+          <a href={"https://www.t.me/danileph"} target="_blank">
+            <Button className={"block h-[46px] px-4 active:translate-y-1"}>
+              Написать мне
+            </Button>
+          </a>
         </section>
         <section className={"xl:mr-10 xl:mt-20"}>
           <Image

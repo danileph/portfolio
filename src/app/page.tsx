@@ -42,6 +42,7 @@ export default async function Home() {
                   </Typography>
                 </Wrapper>
                 <Suspense fallback={route.fallback}>{route.component}</Suspense>
+                {/*{route.fallback}*/}
               </Section>
             )
         )}
